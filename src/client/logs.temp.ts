@@ -34,7 +34,7 @@ export default async (client: Discord.Client<true>) => {
 
         channel.send({
           embeds: [embed],
-        })
+        }).catch(() => { return })
     }
 
     // Channel Topic Updating 
