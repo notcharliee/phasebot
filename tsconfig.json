@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "build",
+    "rootDir": "./src",
+    "skipLibCheck": true,
+    "allowJs": true,
+    "checkJs": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./src",
+    "paths": {
+
+      // General
+
+      "#client/main": [ "client/index.ts" ],
+      "#client/intents": [ "client/options/intents.ts" ],
+      "#client/partials": [ "client/options/partials.ts" ],
+
+      // Utils
+
+      "#utils/constants": [ "utils/constants.ts" ],
+      "#utils/database": [ "utils/database/index.ts" ],
+      "#utils/enums": [ "utils/enums.ts" ],
+      "#utils/functions": [ "utils/functions.ts" ],
+      "#utils/types": [ "utils/types.ts" ],
+
+      // Handlers
+
+      "#handlers/commands": [ "handlers/commands.ts" ],
+      "#handlers/events": [ "handlers/events.ts" ],
+      "#handlers/loops": [ "handlers/loops.ts" ],
+      "#handlers/mongodb": [ "handlers/mongodb.ts" ],
+
+    }
+  },
+  "include": [ "./src/**/*" ],
+  "exclude": [ "./node_modules", "./build" ],
+}
