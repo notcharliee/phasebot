@@ -6,7 +6,7 @@
   "main": "build/client/index.js",
   "scripts": {
     "postinstall": "npm run build",
-    "build": "tsc && npm run start",
+    "build": "tsc",
     "start": "node build/client/index.js",
     "dev": "tsc --watch"
   },
