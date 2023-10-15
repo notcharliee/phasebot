@@ -31,7 +31,7 @@ export default Functions.clientModalEvent({
       interaction,
       'Well, this is awkward..',
       Enums.PhaseError.Unknown
-    ), console.log(interaction.guildId)
+    )
 
     guildPartnerSchema.advert = advertText
     await guildPartnerSchema.save()

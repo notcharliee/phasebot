@@ -25,7 +25,7 @@ export default async (client: Discord.Client<true>) => {
     async function sendlog (guildId: string, embed: Discord.EmbedBuilder) {
 
         const auditLogsSchema = await Database.AuditLogs.findOne({ guild: guildId })
-        if (!auditLogsSchema) return console.log('no log', guildId, embed)
+        if (!auditLogsSchema) return
 
         const channel = client.channels.cache.get(auditLogsSchema.channel)
         if (!channel || !channel.isTextBased()) return
@@ -34,7 +34,7 @@ export default async (client: Discord.Client<true>) => {
 
         channel.send({
           embeds: [embed],
-        }).catch((error) => {return console.log(error, guildId, embed)})
+        })
     }
 
     // Channel Topic Updating 
