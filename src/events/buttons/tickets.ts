@@ -14,6 +14,7 @@ export default Functions.clientButtonEvent({ // Supports either '-' or '.' separ
     if (!interaction.guild || !interaction.member || !interaction.channel) return
     
     const customIdParts = interaction.customId.includes('.') ? interaction.customId.split('.') : interaction.customId.split('-')
+    const ticketId = [...customIdParts].slice(2, 7).join('-')
 
     switch (customIdParts[1]) {
 
@@ -22,8 +23,6 @@ export default Functions.clientButtonEvent({ // Supports either '-' or '.' separ
         await interaction.deferReply({
           ephemeral: true,
         })
-
-        const ticketId = customIdParts[2]
 
         const ticketsSchema = await Database.Tickets.findOne({ guild: interaction.guild.id })
         if (!ticketsSchema) return
@@ -143,8 +142,6 @@ export default Functions.clientButtonEvent({ // Supports either '-' or '.' separ
 
       case 'close': {
 
-        const ticketId = customIdParts[2]
-
         const ticketsSchema = await Database.Tickets.findOne({ guild: interaction.guild.id })
         if (!ticketsSchema) return
 
@@ -222,8 +219,6 @@ export default Functions.clientButtonEvent({ // Supports either '-' or '.' separ
 
 
       case 'reopen': {
-
-        const ticketId = customIdParts[2]
 
         const ticketsSchema = await Database.Tickets.findOne({ guild: interaction.guild.id })
         if (!ticketsSchema) return
@@ -303,8 +298,6 @@ export default Functions.clientButtonEvent({ // Supports either '-' or '.' separ
 
       case 'claim': {
 
-        const ticketId = customIdParts[2]
-
         const ticketsSchema = await Database.Tickets.findOne({ guild: interaction.guild.id })
         if (!ticketsSchema) return
 
@@ -372,8 +365,6 @@ export default Functions.clientButtonEvent({ // Supports either '-' or '.' separ
 
 
       case 'delete': {
-
-        const ticketId = customIdParts[2]
 
         const ticketsSchema = await Database.Tickets.findOne({ guild: interaction.guild.id })
         if (!ticketsSchema) return
